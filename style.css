@@ -1,0 +1,110 @@
+/* הגדרת משתני צבע למצב בהיר (ברירת מחדל) */
+:root {
+    --bg-color: #f4f4f9;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --accent-color: #007bff;
+    --border-color: #dddddd;
+}
+
+/* הגדרת משתני צבע למצב כהה - מופעל כאשר ה-checkbox מסומן */
+body:has(.theme-toggle-checkbox:checked) {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --accent-color: #4da3ff;
+    --border-color: #444444;
+}
+
+/* איפוס בסיסי ועיצוב הגוף */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* הסתרת ה-Checkbox עצמו */
+.theme-toggle-checkbox {
+    display: none;
+}
+
+/* עיצוב כפתור המעבר בין המצבים */
+.theme-toggle-label {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* עיצוב הכרטיס המרכזי */
+.card-container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* עיצוב תמונת הפרופיל והכותרות */
+.profile-header {
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+}
+
+h1 { margin: 10px 0 5px; }
+h2 { font-size: 1.2rem; color: var(--accent-color); margin: 0; }
+
+/* רשימות הקישורים */
+.contact-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-section li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.contact-section a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
+
+/* רספונסיביות למסכים קטנים (מובייל) */
+@media (max-width: 480px) {
+    .card-container {
+        padding: 15px;
+    }
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+    h1 { font-size: 1.5rem; }
+}
